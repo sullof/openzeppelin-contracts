@@ -37,7 +37,7 @@ library SignatureChecker {
         address signer,
         bytes32 hash,
         bytes memory signature
-    ) internal view returns (bool) {
+    ) public view returns (bool) {
         (bool success, bytes memory result) = signer.staticcall(
             abi.encodeCall(IERC1271.isValidSignature, (hash, signature))
         );
